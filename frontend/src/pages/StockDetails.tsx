@@ -10,14 +10,6 @@ const StockDetails: React.FC = observer(() => {
   useEffect(() => {
     if (symbol) {
       stockStore.getStockDetails(symbol);
-
-      //  foundSymbol = stockStore.stocks.filter((stock) => stock === symbol);
-      // console.log('found Symbol: ', foundSymbol);
-    
-      //  if (foundSymbol && foundSymbol.length > 0) {
-      //   stockStore.getStockDetails(foundSymbol[0]);
-
-      // }
     }
   }, [symbol, stockStore]);
 
