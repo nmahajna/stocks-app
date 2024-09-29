@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import  stockStore  from '../stores/StockStore'; 
+import { Button } from 'antd';
 
 const StockDetails: React.FC = observer(() => {
   const { symbol } = useParams<{ symbol: string }>();
@@ -24,8 +25,13 @@ const StockDetails: React.FC = observer(() => {
     return <div>Loading...</div>;
   }
 
+  function navigateBack(): void {
+    window.history.back();
+  }
+
   return (
     <div>
+      <Button  style={{ margin: '5px' }} onClick={() => navigateBack()}>Back</Button>
       <h1>{stockStore.stockDetails.symbol}</h1>
       <p>Name: {stockStore.stockDetails.name}</p>
       <p>Price: ${stockStore.stockDetails.price}</p>
